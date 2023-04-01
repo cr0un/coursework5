@@ -48,6 +48,14 @@ class BaseUnit(ABC):
         damage = target.get_damage(damage)
         return damage
 
+    # def get_damage(self, damage: int) -> Optional[int]:
+    #     # получает урон
+    #     if damage > 0:
+    #         self.hit_points -= damage
+    #         self.hit_points = self.hit_points
+    #         return round(damage, 1)
+    #     return None
+
     def get_damage(self, damage: int) -> Optional[int]:
         # получает урон
         if damage > 0:
@@ -74,6 +82,15 @@ class BaseUnit(ABC):
 
 class PlayerUnit(BaseUnit):
     # класс Игрока
+    # def hit(self, target: BaseUnit) -> str:
+    #     # наносит удар игрока
+    #     if self.stamina >= self.weapon.stamina_per_hit * self.unit_class.stamina:
+    #         damage = self._count_damage(target)
+    #         if damage:
+    #             return f"{self.name} используя {self.weapon.name} пробивает {target.armor.name} соперника и наносит {damage} урона."
+    #         return f"{self.name} используя {self.weapon.name} наносит удар, но {target.armor.name} cоперника его останавливает."
+    #     return f"{self.name} попытался использовать {self.weapon.name}, но у него не хватило выносливости."
+
     def hit(self, target: BaseUnit) -> str:
         # наносит удар игрока
         if self.stamina >= self.weapon.stamina_per_hit * self.unit_class.stamina:
