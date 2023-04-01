@@ -1,12 +1,12 @@
-FROM python:3.9
+version: '3'
 
-WORKDIR /app
+services:
+  web:
+    build: .
+    ports:
+      - "5000:5000"
+    networks:
+      - my_network
 
-COPY requirements.txt .
-RUN pip install --no-cache-dir -r requirements.txt
-
-COPY . .
-
-EXPOSE 5000
-
-CMD ["flask", "run", "--host=0.0.0.0", "--port=5000", "--app=myapp.py"]
+networks:
+  my_network:
